@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card class="card-login">
+      <ion-card-header>
+        <ion-card-subtitle>Authentication</ion-card-subtitle>
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <ion-input
+          placeholder="Enter Email"
+          type="email"
+          [(ngModel)]="email"
+        ></ion-input>
+        <ion-input
+          placeholder="Enter Password"
+          type="password"
+          [(ngModel)]="password"
+        ></ion-input>
+        <ion-button expand="block" fill="outline" (click)="onLogin()"
+          >Login</ion-button
+        >
+        <div class="row">
+          <ion-label color="dark">Don't have an Account?</ion-label>
+          <ion-label
+            class="register-text-login"
+            color="dark"
+            [routerLink]="['/register']"
+            >Register</ion-label
+          >
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

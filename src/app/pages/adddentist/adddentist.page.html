@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Dentist</ion-title>
+    <ion-buttons slot="primary" (click)="addDentist()">
+      <ion-button color="primary">
+        <ion-icon slot="start" name="right"></ion-icon>
+        Done
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-input
+      placeholder="Enter Your Name"
+      type="text"
+      [(ngModel)]="modal.name"
+    ></ion-input>
+    <ion-input
+      placeholder="Enter Email"
+      type="email"
+      [(ngModel)]="modal.email"
+    ></ion-input>
+    <div class="d-flex flex-column mt-3">
+      <ion-input
+        type="file"
+        (change)="onSelectImages($event)"
+        accept="*.png.jpg"
+        multiple="true"
+      ></ion-input>
+      <div class="d-flex">
+        <img width="150" height="150" *ngFor="let img of imgUrls" [src]="img" />
+      </div>
+      <label for="image" class="mt-4">Image File: </label>
+    </div>
+
+    <!-- <div class="d-flex mt-3" *ngFor="let img of multiImageModel">
+      <img width="150" height="150" [src]="img.imageUrl" />
+    </div> -->
+  </div>
+</ion-content>

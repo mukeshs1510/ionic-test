@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dentist</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" [routerLink]="['/adddentist']">
+        Add
+      </ion-button>
+      <ion-button color="danger" (click)="onLogout()"> logout </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of list; let i = index">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-icon
+          name="heart"
+          *ngIf="item.favorite"
+          (click)="noFav(item.id)"
+          color="danger"
+          slot="start"
+          class="ion-no-padding ion-no-margin"
+        ></ion-icon>
+        <ion-icon
+          name="heart-outline"
+          *ngIf="item.favorite == false"
+          (click)="fav(item.id)"
+          color="danger"
+          slot="start"
+          class="ion-no-padding ion-no-margin"
+        ></ion-icon>
+        <ion-label class="ion-no-padding ion-no-margin"
+          >{{item.name}}</ion-label
+        >
+        <ion-label class="ion-no-padding ion-no-margin"
+          >{{item.count}}</ion-label
+        >
+        <ion-button
+          fill="outline"
+          slot="end"
+          class="ion-no-margin"
+          style="margin-right: 5px"
+          [routerLink]="['/patient' , item.id]"
+          routerLinkActive="router-link-active"
+          >View</ion-button
+        >
+      </ion-item>
+      <ion-item-options>
+        <button ion-button expandable color="danger" (click)="delete(item.id)">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-card>
+  <ion-fab-button
+    color="primary"
+    class="margin"
+    horizontal="end"
+    vertical="end"
+    style="float: right; margin-right: 10px"
+    [routerLink]="['/favourites']"
+    ><ion-icon name="heart"></ion-icon
+  ></ion-fab-button>
+</ion-content>

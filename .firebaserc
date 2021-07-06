@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "todo-angular-f6670": {
+      "hosting": {
+        "app": [
+          "todo-angular-f6670"
+        ]
+      }
+    },
+    "ionic-dbd69": {
+      "hosting": {
+        "app": [
+          "ionic-dbd69"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ionic-dbd69"
+  }
+}

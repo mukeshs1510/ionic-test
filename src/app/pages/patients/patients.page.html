@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Patient</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" (click)="addPatient()"> Add </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of list; let i = index">
+    <ion-item-sliding>
+      <ion-item>
+        <!-- <ion-icon
+          name="heart"
+          *ngIf="item.favorite"
+          (click)="noFav(item.id)"
+          color="danger"
+          slot="start"
+          class="ion-no-padding ion-no-margin"
+        ></ion-icon>
+        <ion-icon
+          name="heart-outline"
+          *ngIf="item.favorite == false"
+          (click)="fav(item.id)"
+          color="danger"
+          slot="start"
+          class="ion-no-padding ion-no-margin"
+        ></ion-icon> -->
+        <ion-label class="ion-no-padding ion-no-margin"
+          >{{item.name}}</ion-label
+        >
+        <ion-label class="ion-no-padding ion-no-margin"
+          >{{item.email}}</ion-label
+        >
+        <ion-label class="ion-no-padding ion-no-margin"
+          >{{item.mobile}}</ion-label
+        >
+        <ion-button
+          fill="outline"
+          slot="end"
+          class="ion-no-margin"
+          style="margin-right: 5px"
+          (click)="onEdit(item.id)"
+          routerLinkActive="router-link-active"
+          >Edit</ion-button
+        >
+      </ion-item>
+      <ion-item-options>
+        <button ion-button expandable color="danger" (click)="delete(item.id)">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-card>
+  <div class="multiImages" *ngFor="let img of multiImageModel">
+    <img width="150" height="150" [src]="img.imageUrl" />
+  </div>
+</ion-content>

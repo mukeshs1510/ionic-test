@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Patient</ion-title>
+    <ion-buttons slot="primary" (click)="addPatient()">
+      <ion-button color="primary">
+        <ion-icon slot="start" name="right"></ion-icon>
+        Done
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div class="container">
+    <ion-input
+      placeholder="Enter Your Name"
+      type="text"
+      [(ngModel)]="modal.name"
+    ></ion-input>
+    <ion-input
+      placeholder="Enter Email"
+      type="email"
+      [(ngModel)]="modal.email"
+    ></ion-input>
+    <ion-input
+      placeholder="Enter Mobile Number"
+      type="number"
+      [(ngModel)]="modal.mobile"
+    ></ion-input>
+    <ion-input
+      placeholder="Balance"
+      type="number"
+      [(ngModel)]="modal.balance"
+    ></ion-input>
+  </div> -->
+  <div formArrayName="">
+    <div class="container">
+      <ion-input
+        placeholder="Enter Your Name"
+        type="text"
+        formControlName="name"
+      ></ion-input>
+      <ion-input
+        placeholder="Enter Email"
+        type="email"
+        formControlName="email"
+      ></ion-input>
+      <ion-input
+        placeholder="Enter Mobile Number"
+        type="number"
+        formControlName="mobile"
+      ></ion-input>
+      <ion-input
+        placeholder="Balance"
+        type="number"
+        formControlName="balance"
+      ></ion-input>
+      <div
+        class="treatmentContainer"
+        *ngFor="
+            let tr of form.controls.treatmentForm['controls'];
+            let i = index"
+        [formGroupName]="i"
+      >
+        <ion-input
+          placeholder="Treatment"
+          type="text"
+          formControlName="treatement"
+        ></ion-input>
+        <ion-button>
+          <ion-icon slot="start" name="right"></ion-icon>
+          Done
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card class="card-login">
+      <ion-card-header>
+        <ion-card-subtitle>Authentication</ion-card-subtitle>
+        <ion-card-title>Registration</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <ion-input
+          placeholder="Enter Your Name"
+          type="text"
+          [(ngModel)]="modal.name"
+        ></ion-input>
+        <ion-input
+          placeholder="Enter Email"
+          type="email"
+          [(ngModel)]="modal.email"
+        ></ion-input>
+        <ion-input
+          placeholder="Enter Password"
+          type="password"
+          [(ngModel)]="modal.password"
+        ></ion-input>
+        <ion-input
+          placeholder="Confirm Password"
+          type="password"
+          [(ngModel)]="conPass"
+        ></ion-input>
+
+        <ion-button expand="block" fill="outline" (click)="onRegister()"
+          >Register</ion-button
+        >
+        <div class="row">
+          <ion-label color="dark">Already have an Account?</ion-label>
+          <ion-label class="register-text-reg" color="dark" (click)="goBack()"
+            >Login</ion-label
+          >
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
